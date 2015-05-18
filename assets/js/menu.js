@@ -1,5 +1,3 @@
-var $a = $("ul.sub-menu");
-
 $(document).ready(function(){
 
     // START FADE IN/OUT HOVER + CORRECIÓN BUG MOBILE->DESKTOP
@@ -7,7 +5,6 @@ $(document).ready(function(){
         $('ul.sub-menu', this).fadeIn();
     },function(){
         var submenu = $('ul.sub-menu', this);
-        
         submenu.fadeOut({
             complete: function () {
                 submenu.css('display', 'none');
