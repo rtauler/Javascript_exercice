@@ -2,11 +2,7 @@ var $a = $("ul.sub-menu");
 
 $(document).ready(function(){
 
-    // START ANTI-BUG MOBILE -> DESKTOP
-    
-    // END ANTI-BUG MOBILE -> DESKTOP
-
-    // START FADE IN/OUT HOVER
+    // START FADE IN/OUT HOVER + CORRECIÓN BUG MOBILE->DESKTOP
     $("li", this).hover(function(){
         $('ul.sub-menu', this).fadeIn();
     },function(){
@@ -27,10 +23,38 @@ $(document).ready(function(){
     });
     // END CURRENT MENU KEEPER
 
-    //START MENU TO CLOSE/CLOSE TO MENU
-    $("#mobile-button, #mobile-close").click(function(){
-        $("#mobile-button, #mobile-close").toggle();
-        $("#menu-container").toggle();
+    //START MENU TO CLOSE TO MENU
+    $("#mobile-button").click(function(){
+        $("#mobile-button").css('display', 'none');
+        $("#mobile-close").css('display', 'block');
+        $('#menu-container').css ('display', 'block');
+
     });
-    //END MENU TO CLOSE/CLOSE TO MENU
+    $("#mobile-close").click(function(){
+        $("#mobile-close").css('display', 'none');
+        $("#mobile-button").css('display', 'block');
+        $('#menu-container').css ('display', 'none');
+    });
+    //END MENU TO CLOSE TO MENU
+
+    //START HIDE CLOSE BUTTON AFTER MOBILE->DESKTOP
+    $(window).resize(function(){  
+        if ($(window).width() > 990){  
+            $("#mobile-button, #mobile-close").css('display', 'none');
+
+        } 
+        if ($(window).width() < 990){
+            if ($("#menu-container").css('display') ==='none') {
+                $("#mobile-button").css('display', 'block');
+            }
+            if ($("#menu-container").css('display') ==='block') {
+                $("#mobile-close").css('display', 'block');
+                
+            }
+
+
+        }
+
+});
+    //END HIDE CLOSE BUTTON AFTER MOBILE->DESKTOP
 });
