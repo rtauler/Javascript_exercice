@@ -48,13 +48,9 @@ $(document).ready(function(){
                 $("#mobile-button").css('display', 'block');
             }
             if ($("#menu-container").css('display') ==='block') {
-                $("#mobile-close").css('display', 'block');
-                
+                $("#mobile-close").css('display', 'block');   
             }
-
-
         }
-
-});
+    });
     //END HIDE CLOSE BUTTON AFTER MOBILE->DESKTOP
 });
