@@ -15,23 +15,21 @@ $(document).ready(function(){
 
     // START CURRENT MENU KEEPER
     $("a", this).click(function(){
-        $("a").parent().removeClass("current-menu-item");
+        $('.current-menu-item').removeClass('current-menu-item')
+        // $("a").parent().removeClass("current-menu-item");
         $(this).parent().addClass("current-menu-item");
     });
     // END CURRENT MENU KEEPER
 
-    //START MENU TO CLOSE TO MENU
-    $("#mobile-button").click(function(){
-        $("#mobile-button").css('display', 'none');
-        $("#mobile-close").css('display', 'block');
-        $('#menu-container').css ('display', 'block');
+    function toggleElements() {
+        $("#mobile-button").toggle();
+        $("#mobile-close").toggle();
+        $('#menu-container').toggle();
+    }
 
-    });
-    $("#mobile-close").click(function(){
-        $("#mobile-close").css('display', 'none');
-        $("#mobile-button").css('display', 'block');
-        $('#menu-container').css ('display', 'none');
-    });
+    //START MENU TO CLOSE TO MENU
+    $("#mobile-button").click(toggleElements);
+    $("#mobile-close").click(toggleElements);
     //END MENU TO CLOSE TO MENU
 
     //START HIDE CLOSE BUTTON AFTER MOBILE->DESKTOP
